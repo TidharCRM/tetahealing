@@ -384,6 +384,18 @@
   }
   footer .socials{display:flex;gap:20px}
   footer a:hover{color:var(--ink)}
+  .footer-credit{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+  .footer-credit > span{color:var(--ink-dim)}
+  .klix{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:7px 12px;border:1px solid var(--line);border-radius:999px;
+    font-family:"JetBrains Mono",monospace;font-size:10px;
+    letter-spacing:.22em;text-transform:uppercase;color:var(--ink-dim);
+    transition:.3s;
+  }
+  .klix:hover{border-color:var(--accent);color:var(--ink)}
+  .klix-mark{color:var(--ink);font-weight:500;letter-spacing:.28em}
+  .klix:hover .klix-mark{color:var(--accent)}
 
   /* ---------- RESPONSIVE ---------- */
   @media (max-width:900px){
@@ -804,7 +816,13 @@
     <a href="#">WhatsApp</a>
     <a href="tel:">050-0000000</a>
   </div>
-  <div>© 2026 · כל הזכויות שמורות</div>
+  <div class="footer-credit">
+    <span>© 2026 · כל הזכויות שמורות</span>
+    <a class="klix" href="https://wa.me/972526331295?text=%D7%94%D7%99%D7%99%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%9E%D7%93%D7%A3%20%D7%94%D7%A0%D7%97%D7%99%D7%AA%D7%94%20%D7%A9%D7%9C%20%D7%A0%D7%95%D7%94" target="_blank" rel="noopener">
+      <span class="klix-label">Powered by</span>
+      <span class="klix-mark">KLIX</span>
+    </a>
+  </div>
 </footer>
 
 <script>
