@@ -288,7 +288,7 @@
   }
   @keyframes spin{to{transform:rotate(360deg)}}
   .gift-inner{display:grid;grid-template-columns:3fr 2fr;gap:64px;align-items:center}
-  .gift-inner h2{font-family:"Mamilla",serif;font-weight:500;font-size:clamp(32px,3.5vw,48px);line-height:1.1;margin:0 0 20px;letter-spacing:-.01em}
+  .gift-inner h2{font-family:"Mamilla",serif;font-weight:500;font-size:clamp(26px,3.5vw,48px);line-height:1.15;margin:0 0 20px;letter-spacing:-.01em;overflow-wrap:break-word;word-break:normal}
   .gift-inner p{color:var(--ink-soft);font-size:17px;margin:0 0 32px}
   .chakra-stack{display:flex;flex-direction:column;gap:8px;margin-top:24px}
   .chakra-row{display:flex;align-items:center;gap:14px;padding:10px 0}
@@ -386,9 +386,10 @@
     section{padding:80px 0}
     nav.top{padding:14px 20px;gap:12px}
     nav.top ul{display:none}
-    .pain-grid,.about-grid,.contact-grid,.faq-grid,.gift-inner{grid-template-columns:1fr;gap:40px}
+    .pain-grid,.about-grid,.contact-grid,.faq-grid,.gift-inner{grid-template-columns:minmax(0,1fr);gap:40px}
+    .pain-grid > *,.about-grid > *,.contact-grid > *,.faq-grid > *,.gift-inner > *{min-width:0}
     .faq-grid > div:first-child{position:static;top:auto}
-    .pain-points,.flow-steps,.test-grid{grid-template-columns:1fr}
+    .pain-points,.flow-steps,.test-grid{grid-template-columns:minmax(0,1fr)}
     .belief-example{grid-template-columns:1fr;padding:32px}
     .belief-quote{border-right:none;border-top:2px solid var(--accent);padding-right:0;padding-top:20px}
     .gift-box{padding:40px 24px}
@@ -409,9 +410,9 @@
     .belief-quote{font-size:22px;line-height:1.35}
     .flow-steps{grid-template-columns:1fr}
     .step{min-height:auto;padding:32px 24px}
-    .gift-box{padding:36px 20px;border-radius:24px}
+    .gift-box{padding:28px 16px;border-radius:22px}
     .gift-inner{gap:36px}
-    .gift-inner h2{font-size:26px;line-height:1.2;overflow-wrap:break-word;word-break:keep-all}
+    .gift-inner h2{font-size:24px;line-height:1.2;overflow-wrap:break-word;word-break:normal;letter-spacing:0}
     .gift-inner p{font-size:15px;margin-bottom:24px}
     .gift-inner .btn{width:100%;justify-content:center}
     .audio-mock{padding:18px;gap:12px}
@@ -608,7 +609,7 @@
       <div class="gift-inner">
         <div>
           <div class="eyebrow mono">מתנה ממני אליך</div>
-          <h2>מדיטציית איזון ל־7 מרכזי האנרגייה.</h2>
+          <h2>מדיטציית איזון<br>ל־7 מרכזי האנרגייה.</h2>
           <p>הקלטה של 10 דקות שהכנתי בעצמי. עוזרת לאזן את שבע הצ׳אקרות, לשחרר מתחים בגוף, ולסיים את היום במקום אחר לגמרי. תקבל אותה כשנשוחח, יחד עם כלים פרקטיים להמשך.</p>
           <a href="#contact" class="btn btn-primary">
             <span>רוצה לקבל</span>
