@@ -310,7 +310,12 @@
   .audio-time{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--ink-dim)}
 
   /* ---------- TESTIMONIALS ---------- */
-  .test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .testimonials-title{
+    font-family:"Mamilla",serif;font-weight:500;
+    font-size:clamp(34px,4vw,56px);line-height:1.1;margin:0 0 56px;letter-spacing:-.01em;
+  }
+  .testimonials-title em{font-style:italic;color:var(--accent)}
+  .test-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
   .test-card{
     padding:36px 32px;border:1px solid var(--line);border-radius:20px;
     background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0));
@@ -422,6 +427,7 @@
     .chakra-row .hz{font-size:10px}
     .test-card{padding:28px 22px}
     .test-quote{font-size:17px}
+    .testimonials-title{font-size:30px;margin-bottom:40px}
     .faq-grid > div:first-child{position:static}
     .faq-item summary h3{font-size:17px}
     .contact h2{font-size:36px}
@@ -632,37 +638,58 @@
 </section>
 
 <!-- ========== TESTIMONIALS ========== -->
-<section class="testimonials">
+<section class="testimonials" id="testimonials">
   <div class="wrap">
-    <div class="eyebrow mono">מה מספרים אחרי סשן</div>
+    <div class="eyebrow mono">המלצות · מלקוחות נוה</div>
+    <h2 class="testimonials-title">מה מספרים<br><em>אחרי סשן.</em></h2>
     <div class="test-grid">
       <div class="test-card">
-        <p class="test-quote">"נכנסתי לסשן עם בעיית שינה של שנים. יצאתי עם הבנה מה באמת קרה שם — ולילה ראשון של שינה אמיתית מאז שאני זוכרת."</p>
+        <p class="test-quote">"הייתי צריך את זה. לא ציפיתי להגיע לעומקים כאלה, אבל נגענו פה בנקודות שכנראה לא הייתי מדבר עליהם עם אף אחד אחר — אז תודה לך."</p>
         <div class="test-author">
-          <div class="test-avatar">ש</div>
+          <div class="test-avatar">♡</div>
           <div>
-            <div class="test-name">שיר מ.</div>
-            <div class="test-role">מעצבת · תל אביב</div>
+            <div class="test-name">לקוח</div>
+            <div class="test-role">אחרי סשן תטא · WhatsApp</div>
           </div>
         </div>
       </div>
       <div class="test-card">
-        <p class="test-quote">"לא האמנתי לדברים האלה. הגעתי ציני. אחרי שלושה סשנים עזבתי עבודה ששנאתי חמש שנים. נוה עושה את זה בלי דרמה."</p>
+        <p class="test-quote">"היה מדהים. מוזר היה לראות כמה אני כבר יודע, אבל זה עדיין לא היה מספיק. הסשן הפגיש אותי עם דברים שהכרתי בעצמי, אבל הגוף שלי לא נתן לי לרדת לעומקים שאתה עזרת לי לרדת אליהם — להתמודד עם חסמים שהיו שם שנים."</p>
         <div class="test-author">
-          <div class="test-avatar">ד</div>
+          <div class="test-avatar">♡</div>
           <div>
-            <div class="test-name">דניאל ק.</div>
-            <div class="test-role">מפתח · חיפה</div>
+            <div class="test-name">לקוח</div>
+            <div class="test-role">אחרי סשן תטא · WhatsApp</div>
           </div>
         </div>
       </div>
       <div class="test-card">
-        <p class="test-quote">"הצבת גבולות הייתה מילה מלוכלכת אצלי. עכשיו זה פשוט משהו שאני עושה. כאילו החלפתי תוכנה פנימית."</p>
+        <p class="test-quote">"היה ממש כיף ומשחרר. גיליתי דברים חדשים שבי קיימים, וגם להסתכל קדימה תמיד ולחשוב חיובי — זה המפתח. הרגשתי תחושה טובה."</p>
         <div class="test-author">
-          <div class="test-avatar">ע</div>
+          <div class="test-avatar">א</div>
           <div>
-            <div class="test-name">עדי ל.</div>
-            <div class="test-role">מורה · ירושלים</div>
+            <div class="test-name">אנדי</div>
+            <div class="test-role">אחרי סשן תטא · WhatsApp</div>
+          </div>
+        </div>
+      </div>
+      <div class="test-card">
+        <p class="test-quote">"הרמת לי את מצב הרוח. נגענו בדברים שלא האמנתי שאצליח לשחרר אותם. אנרגיה מעולה."</p>
+        <div class="test-author">
+          <div class="test-avatar">♡</div>
+          <div>
+            <div class="test-name">לקוח</div>
+            <div class="test-role">אחרי סשן תטא · WhatsApp</div>
+          </div>
+        </div>
+      </div>
+      <div class="test-card">
+        <p class="test-quote">"הסשן היה חזק, עוצמתי, וגם סוג של סגירת מעגל עבורי. נראה לי זה הסשן שיצאתי ממנו עם הכי הרבה לומדות ותובנות. תודה רבה על הכל, אחי."</p>
+        <div class="test-author">
+          <div class="test-avatar">♡</div>
+          <div>
+            <div class="test-name">לקוח</div>
+            <div class="test-role">אחרי סשן תטא · WhatsApp</div>
           </div>
         </div>
       </div>
