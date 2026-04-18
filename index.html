@@ -1,0 +1,801 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>נוה גורביץ’ · ריפוי מהשורש</title>
+<meta name="description" content="נוה גורביץ’ · ריפוי מהשורש — ריפוי תטא שמטפל באמונות המגבילות ששוכנות בתת־המודע. סשנים ב־Google Meet. שיחת אפיון חינם + מדיטציית מתנה." />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /* ---------- PREMIUM FONTUP FACES ---------- */
+  @font-face{font-family:"Mamilla";src:url("fonts/Mamilla-Light.woff2") format("woff2");font-weight:300;font-display:swap}
+  @font-face{font-family:"Mamilla";src:url("fonts/Mamilla-Regular.woff2") format("woff2");font-weight:400;font-display:swap}
+  @font-face{font-family:"Mamilla";src:url("fonts/Mamilla-Medium.woff2") format("woff2");font-weight:500;font-display:swap}
+  @font-face{font-family:"Mamilla";src:url("fonts/Mamilla-SemiBold.woff2") format("woff2");font-weight:600;font-display:swap}
+  @font-face{font-family:"Mamilla";src:url("fonts/Mamilla-Bold.woff2") format("woff2");font-weight:700;font-display:swap}
+  @font-face{font-family:"Alon";src:url("fonts/Alon-Light.woff2") format("woff2");font-weight:300;font-display:swap}
+  @font-face{font-family:"Alon";src:url("fonts/Alon-Regular.woff2") format("woff2");font-weight:400;font-display:swap}
+  @font-face{font-family:"Alon";src:url("fonts/Alon-Medium.woff2") format("woff2");font-weight:500;font-display:swap}
+  @font-face{font-family:"Alon";src:url("fonts/Alon-SemiBold.woff2") format("woff2");font-weight:600;font-display:swap}
+  @font-face{font-family:"Alon";src:url("fonts/Alon-Bold.woff2") format("woff2");font-weight:700;font-display:swap}
+
+  /* ---------- PALETTES ---------- */
+  :root[data-palette="cosmos"]{
+    --bg-0:#0b0716; --bg-1:#140b28; --bg-2:#1d1138;
+    --ink:#f3ecff; --ink-soft:#c9bce6; --ink-dim:#8a7db0;
+    --line:rgba(201,188,230,.14);
+    --accent:#c9a86a; --accent-soft:#e7d3a3;
+    --violet:#8b6ff0; --lilac:#c8b6ff;
+    --glow-a:rgba(139,111,240,.55); --glow-b:rgba(201,168,106,.25);
+  }
+  :root[data-palette="twilight"]{
+    --bg-0:#0a0e1f; --bg-1:#0f152e; --bg-2:#17203f;
+    --ink:#eef2ff; --ink-soft:#b9c2e4; --ink-dim:#7a83aa;
+    --line:rgba(185,194,228,.14);
+    --accent:#e8b0d6; --accent-soft:#f5cfe6;
+    --violet:#6f8dff; --lilac:#a8c2ff;
+    --glow-a:rgba(111,141,255,.5); --glow-b:rgba(232,176,214,.22);
+  }
+  :root[data-palette="dawn"]{
+    --bg-0:#140b18; --bg-1:#221028; --bg-2:#31173a;
+    --ink:#fff3ea; --ink-soft:#f1d8d0; --ink-dim:#b39797;
+    --line:rgba(241,216,208,.14);
+    --accent:#ffb37a; --accent-soft:#ffd0a8;
+    --violet:#c67fd4; --lilac:#e9b5f0;
+    --glow-a:rgba(198,127,212,.55); --glow-b:rgba(255,179,122,.22);
+  }
+  :root[data-palette="forest"]{
+    --bg-0:#071411; --bg-1:#0d1f1a; --bg-2:#122b23;
+    --ink:#effaf2; --ink-soft:#bcd6c6; --ink-dim:#7ea392;
+    --line:rgba(188,214,198,.14);
+    --accent:#d6b87a; --accent-soft:#ead2a0;
+    --violet:#69b38e; --lilac:#a5d4bc;
+    --glow-a:rgba(105,179,142,.45); --glow-b:rgba(214,184,122,.2);
+  }
+
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--bg-0);
+    color:var(--ink);
+    font-family:"Alon","Helvetica Neue",sans-serif;
+    font-weight:300;
+    line-height:1.65;
+    font-size:17px;
+    letter-spacing:.005em;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  .serif{font-family:"Mamilla",serif;font-weight:500}
+  .mono{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-dim)}
+  a{color:inherit;text-decoration:none}
+  button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+
+  /* ---------- BACKGROUND COSMOS ---------- */
+  .sky{
+    position:fixed;inset:0;z-index:-2;overflow:hidden;pointer-events:none;
+    background:
+      radial-gradient(ellipse 60% 40% at 80% 10%, var(--glow-a), transparent 60%),
+      radial-gradient(ellipse 50% 35% at 10% 90%, var(--glow-b), transparent 65%),
+      radial-gradient(ellipse 70% 50% at 50% 50%, var(--bg-2), transparent 70%),
+      var(--bg-0);
+  }
+  .stars{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.7}
+  .stars i{
+    position:absolute;width:2px;height:2px;border-radius:50%;
+    background:var(--ink);opacity:.7;
+    animation:tw 4s ease-in-out infinite;
+  }
+  @keyframes tw{0%,100%{opacity:.25;transform:scale(.8)}50%{opacity:1;transform:scale(1.1)}}
+
+  /* ---------- NAV ---------- */
+  nav.top{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    padding:18px 48px;display:flex;align-items:center;justify-content:space-between;
+    backdrop-filter:blur(14px);
+    background:linear-gradient(to bottom, rgba(11,7,22,.65), rgba(11,7,22,0));
+  }
+  .logo{display:flex;align-items:center;gap:10px}
+  .logo-mark{
+    width:38px;height:38px;border-radius:50%;
+    background:#fff;
+    overflow:hidden;position:relative;
+    box-shadow:0 0 24px var(--glow-a), 0 0 0 1px var(--line);
+  }
+  .logo-mark img{width:100%;height:100%;object-fit:cover;display:block}
+  .logo-text{font-family:"Mamilla",serif;font-size:19px;letter-spacing:.04em}
+  nav.top ul{display:flex;gap:34px;list-style:none;margin:0;padding:0;font-size:14px;color:var(--ink-soft)}
+  nav.top ul a:hover{color:var(--ink)}
+  .nav-cta{
+    padding:9px 18px;border:1px solid var(--line);border-radius:999px;font-size:13px;
+    transition:.3s;background:rgba(255,255,255,.02);
+  }
+  .nav-cta:hover{border-color:var(--accent);color:var(--accent)}
+
+  /* ---------- LAYOUT ---------- */
+  .wrap{max-width:1240px;margin:0 auto;padding:0 48px}
+  section{position:relative;padding:140px 0}
+  .eyebrow{display:inline-flex;align-items:center;gap:10px;margin-bottom:22px}
+  .eyebrow::before{content:"";width:28px;height:1px;background:var(--accent)}
+
+  /* ---------- HERO ---------- */
+  .hero{padding-top:190px;padding-bottom:120px;text-align:center;position:relative}
+  .hero-orb{
+    position:absolute;top:40px;left:50%;transform:translateX(-50%);
+    width:720px;height:720px;max-width:90vw;max-height:90vw;
+    border-radius:50%;
+    background:
+      radial-gradient(circle at 50% 45%, var(--glow-a) 0%, transparent 55%),
+      radial-gradient(circle at 50% 50%, transparent 40%, var(--glow-b) 55%, transparent 75%);
+    filter:blur(6px);
+    z-index:-1;
+    animation:pulse 9s ease-in-out infinite;
+  }
+  @keyframes pulse{0%,100%{transform:translateX(-50%) scale(1)}50%{transform:translateX(-50%) scale(1.05)}}
+  .hero h1{
+    font-family:"Mamilla",serif;font-weight:500;
+    font-size:clamp(42px,6.5vw,96px);line-height:1.05;letter-spacing:-.01em;
+    margin:0 auto;max-width:14ch;
+  }
+  .hero h1 em{font-style:normal;color:var(--accent);font-weight:500}
+  .hero p.lede{
+    max-width:56ch;margin:32px auto 0;
+    font-size:20px;color:var(--ink-soft);font-weight:300;
+    text-wrap:pretty;
+  }
+  .hero-cta{margin-top:48px;display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:16px 32px;border-radius:999px;
+    font-size:15px;font-weight:500;
+    transition:transform .3s, box-shadow .3s, background .3s;
+  }
+  .btn-primary{
+    background:var(--ink);color:var(--bg-0);
+    box-shadow:0 10px 40px -10px var(--glow-a), 0 0 0 1px rgba(255,255,255,.1);
+  }
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 20px 50px -10px var(--glow-a)}
+  .btn-ghost{
+    border:1px solid var(--line);color:var(--ink-soft);background:rgba(255,255,255,.02);
+  }
+  .btn-ghost:hover{border-color:var(--accent);color:var(--ink)}
+  .btn .arrow{display:inline-block;transition:transform .3s}
+  .btn:hover .arrow{transform:translateX(-4px)}
+
+  .hero-meta{
+    margin-top:80px;display:flex;gap:48px;justify-content:center;flex-wrap:wrap;
+    color:var(--ink-dim);font-size:13px;
+  }
+  .hero-meta span{display:flex;align-items:center;gap:8px}
+  .hero-meta span::before{content:"";width:5px;height:5px;background:var(--accent);border-radius:50%}
+
+  /* ---------- PAIN SECTION ---------- */
+  .pain{overflow:hidden}
+  .pain-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+  .pain h2{
+    font-family:"Mamilla",serif;font-weight:500;
+    font-size:clamp(34px,4vw,56px);line-height:1.1;margin:0;letter-spacing:-.01em;
+  }
+  .pain h2 span{color:var(--accent);font-style:italic;font-family:"Mamilla",serif}
+  .pain p{color:var(--ink-soft);font-size:17px;margin:0 0 20px}
+  .pain-points{
+    margin-top:60px;grid-column:1/-1;
+    display:grid;grid-template-columns:repeat(3,1fr);gap:2px;
+    background:var(--line);border:1px solid var(--line);border-radius:24px;overflow:hidden;
+  }
+  .pain-card{
+    background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0));
+    padding:36px 32px;
+    transition:.4s;
+  }
+  .pain-card:hover{background:linear-gradient(180deg, rgba(139,111,240,.08), rgba(255,255,255,0))}
+  .pain-card .num{font-family:"Mamilla",serif;font-size:48px;color:var(--accent);line-height:1;margin-bottom:18px;font-weight:400}
+  .pain-card h3{font-family:"Mamilla",serif;font-size:22px;font-weight:500;margin:0 0 10px}
+  .pain-card p{font-size:15px;color:var(--ink-soft);margin:0;line-height:1.6}
+
+  .belief-example{
+    margin-top:80px;padding:48px;border:1px solid var(--line);border-radius:24px;
+    background:radial-gradient(ellipse at top right, rgba(139,111,240,.12), transparent 60%);
+    display:grid;grid-template-columns:auto 1fr;gap:40px;align-items:center;
+  }
+  .belief-quote{
+    font-family:"Mamilla",serif;font-style:italic;font-size:28px;line-height:1.4;
+    color:var(--ink);max-width:26ch;
+    border-right:2px solid var(--accent);padding-right:28px;
+  }
+  .belief-quote small{display:block;font-style:normal;font-size:12px;color:var(--ink-dim);margin-top:12px;letter-spacing:.15em;text-transform:uppercase;font-family:"JetBrains Mono",monospace}
+  .belief-result h4{font-family:"Mamilla",serif;font-size:17px;font-weight:500;margin:0 0 14px;color:var(--ink-soft)}
+  .belief-result ul{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+  .belief-result li{display:flex;align-items:center;gap:12px;color:var(--ink-soft);font-size:15px}
+  .belief-result li::before{content:"–";color:var(--accent);font-weight:500}
+
+  /* ---------- SESSION FLOW ---------- */
+  .flow{padding-top:80px}
+  .flow-head{text-align:center;margin-bottom:80px}
+  .flow-head h2{
+    font-family:"Mamilla",serif;font-weight:500;
+    font-size:clamp(34px,4vw,56px);line-height:1.1;margin:0 auto;max-width:18ch;letter-spacing:-.01em;
+  }
+  .flow-head p{color:var(--ink-soft);max-width:52ch;margin:22px auto 0}
+  .flow-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:24px;overflow:hidden}
+  .step{background:var(--bg-1);padding:40px 28px;position:relative;min-height:260px;display:flex;flex-direction:column}
+  .step .step-num{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.2em;color:var(--accent);margin-bottom:28px}
+  .step h3{font-family:"Mamilla",serif;font-size:22px;font-weight:500;margin:0 0 12px;line-height:1.25}
+  .step p{font-size:14px;color:var(--ink-soft);margin:0;line-height:1.6}
+  .step-glyph{
+    width:42px;height:42px;margin-bottom:24px;border-radius:50%;
+    border:1px solid var(--line);
+    display:grid;place-items:center;
+    background:radial-gradient(circle at 30% 30%, var(--glow-a), transparent 70%);
+  }
+  .step-glyph::after{
+    content:"";width:8px;height:8px;border-radius:50%;background:var(--accent);
+    box-shadow:0 0 12px var(--accent);
+  }
+
+  /* ---------- ABOUT NAVE ---------- */
+  .about-grid{display:grid;grid-template-columns:5fr 7fr;gap:80px;align-items:center}
+  .about-photo{
+    aspect-ratio:4/5;border-radius:24px;position:relative;overflow:hidden;
+    border:1px solid var(--line);
+    box-shadow:0 30px 80px -30px rgba(0,0,0,.6);
+  }
+  .about-photo img{
+    width:100%;height:100%;object-fit:cover;display:block;
+    filter:saturate(.85) contrast(1.02);
+  }
+  .about-photo::after{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background:
+      linear-gradient(180deg, transparent 55%, rgba(11,7,22,.55) 100%),
+      radial-gradient(ellipse at top right, rgba(139,111,240,.18), transparent 60%);
+  }
+  .about-photo .halo{
+    position:absolute;inset:-30%;border-radius:50%;
+    background:radial-gradient(circle, var(--glow-a) 0%, transparent 55%);
+    filter:blur(20px);
+    z-index:-1;
+  }
+  .about-photo .caption{
+    position:absolute;bottom:20px;right:20px;left:20px;z-index:2;
+    font-family:"JetBrains Mono",monospace;font-size:10px;
+    letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft);
+    display:flex;justify-content:space-between;align-items:center;
+  }
+  .about-photo .caption::before{content:"";flex:1;height:1px;background:var(--line);margin-left:12px}
+  .about h2{
+    font-family:"Mamilla",serif;font-weight:500;
+    font-size:clamp(34px,4vw,56px);line-height:1.1;margin:0 0 28px;letter-spacing:-.01em;
+  }
+  .about h2 em{font-style:italic;color:var(--accent)}
+  .about p{color:var(--ink-soft);font-size:17px;margin:0 0 20px;max-width:50ch}
+  .about-stats{display:flex;gap:40px;margin-top:48px;padding-top:40px;border-top:1px solid var(--line)}
+  .stat .n{font-family:"Mamilla",serif;font-size:36px;color:var(--accent);font-weight:500;line-height:1}
+  .stat .l{font-size:12px;color:var(--ink-dim);letter-spacing:.1em;text-transform:uppercase;margin-top:6px;font-family:"JetBrains Mono",monospace}
+
+  /* ---------- GIFT / MEDITATION ---------- */
+  .gift{padding:0}
+  .gift-box{
+    position:relative;
+    border:1px solid var(--line);border-radius:32px;
+    padding:80px 64px;overflow:hidden;
+    background:linear-gradient(135deg, rgba(139,111,240,.08), rgba(201,168,106,.05));
+  }
+  .gift-box::before{
+    content:"";position:absolute;inset:-50%;
+    background:conic-gradient(from 0deg, transparent, var(--glow-a), transparent, var(--glow-b), transparent);
+    opacity:.35;animation:spin 30s linear infinite;z-index:-1;
+  }
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .gift-inner{display:grid;grid-template-columns:3fr 2fr;gap:64px;align-items:center}
+  .gift-inner h2{font-family:"Mamilla",serif;font-weight:500;font-size:clamp(32px,3.5vw,48px);line-height:1.1;margin:0 0 20px;letter-spacing:-.01em}
+  .gift-inner p{color:var(--ink-soft);font-size:17px;margin:0 0 32px}
+  .chakra-stack{display:flex;flex-direction:column;gap:8px;margin-top:24px}
+  .chakra-row{display:flex;align-items:center;gap:14px;padding:10px 0}
+  .chakra-dot{width:14px;height:14px;border-radius:50%;flex-shrink:0;box-shadow:0 0 16px currentColor}
+  .chakra-row span{font-size:13px;color:var(--ink-soft)}
+  .chakra-row .hz{margin-right:auto;font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--ink-dim);letter-spacing:.1em}
+
+  .audio-mock{
+    background:rgba(0,0,0,.25);border:1px solid var(--line);border-radius:20px;
+    padding:24px;display:flex;align-items:center;gap:16px;
+  }
+  .play-btn{
+    width:48px;height:48px;border-radius:50%;
+    background:var(--accent);color:var(--bg-0);
+    display:grid;place-items:center;font-size:16px;flex-shrink:0;
+  }
+  .audio-waveform{flex:1;display:flex;align-items:center;gap:3px;height:32px}
+  .audio-waveform i{display:block;width:3px;background:var(--ink-soft);border-radius:2px;opacity:.4}
+  .audio-time{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--ink-dim)}
+
+  /* ---------- TESTIMONIALS ---------- */
+  .test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .test-card{
+    padding:36px 32px;border:1px solid var(--line);border-radius:20px;
+    background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0));
+    display:flex;flex-direction:column;gap:24px;
+  }
+  .test-quote{font-family:"Mamilla",serif;font-size:20px;line-height:1.5;color:var(--ink);margin:0;flex:1}
+  .test-author{display:flex;align-items:center;gap:14px;padding-top:20px;border-top:1px solid var(--line)}
+  .test-avatar{
+    width:42px;height:42px;border-radius:50%;flex-shrink:0;
+    background:linear-gradient(135deg, var(--violet), var(--accent));
+    display:grid;place-items:center;font-family:"Mamilla",serif;font-size:16px;color:var(--bg-0);
+  }
+  .test-name{font-size:14px;font-weight:500}
+  .test-role{font-size:12px;color:var(--ink-dim);font-family:"JetBrains Mono",monospace;letter-spacing:.1em}
+
+  /* ---------- FAQ ---------- */
+  .faq-grid{display:grid;grid-template-columns:1fr 2fr;gap:80px;align-items:start}
+  .faq-grid > div:first-child{position:sticky;top:120px}
+  .faq-list{border-top:1px solid var(--line)}
+  .faq-item{border-bottom:1px solid var(--line);padding:28px 0;cursor:pointer}
+  .faq-item summary{list-style:none;display:flex;justify-content:space-between;align-items:center;gap:24px}
+  .faq-item summary::-webkit-details-marker{display:none}
+  .faq-item summary h3{font-family:"Mamilla",serif;font-size:20px;font-weight:500;margin:0;flex:1;line-height:1.4}
+  .faq-toggle{
+    width:32px;height:32px;border-radius:50%;border:1px solid var(--line);
+    display:grid;place-items:center;flex-shrink:0;font-size:18px;color:var(--ink-soft);
+    transition:.3s;
+  }
+  .faq-item[open] .faq-toggle{transform:rotate(45deg);background:var(--accent);color:var(--bg-0);border-color:var(--accent)}
+  .faq-answer{padding-top:18px;color:var(--ink-soft);font-size:15px;max-width:60ch;line-height:1.7}
+
+  /* ---------- CONTACT ---------- */
+  .contact{position:relative}
+  .contact-grid{display:grid;grid-template-columns:5fr 4fr;gap:80px;align-items:start}
+  .contact h2{font-family:"Mamilla",serif;font-weight:500;font-size:clamp(38px,4.5vw,64px);line-height:1.05;margin:0 0 24px;letter-spacing:-.01em}
+  .contact h2 em{font-style:italic;color:var(--accent)}
+  .contact p.sub{color:var(--ink-soft);font-size:17px;max-width:46ch;margin:0 0 40px}
+  .contact-meta{display:grid;gap:16px;margin-top:48px}
+  .contact-meta div{display:flex;align-items:center;gap:16px;padding:16px 0;border-top:1px solid var(--line);font-size:14px;color:var(--ink-soft)}
+  .contact-meta div .mono{font-size:11px;color:var(--ink-dim);min-width:90px}
+
+  form.contact-form{
+    padding:40px;border:1px solid var(--line);border-radius:24px;
+    background:rgba(255,255,255,.02);
+    display:grid;gap:18px;
+  }
+  .field{display:grid;gap:8px}
+  .field label{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-dim)}
+  .field input, .field textarea, .field select{
+    background:transparent;border:none;border-bottom:1px solid var(--line);
+    padding:10px 0;color:var(--ink);font-family:inherit;font-size:15px;
+    transition:border-color .3s;
+    font-weight:300;
+  }
+  .field input:focus, .field textarea:focus, .field select:focus{outline:none;border-color:var(--accent)}
+  .field textarea{resize:vertical;min-height:80px}
+  .field select{appearance:none;background-image:linear-gradient(45deg, transparent 50%, var(--ink-soft) 50%);background-position:left 6px center;background-size:10px 10px;background-repeat:no-repeat;padding-left:28px}
+  .form-submit{margin-top:8px;width:100%;justify-content:center}
+  .form-note{font-size:12px;color:var(--ink-dim);text-align:center;margin-top:4px}
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    padding:60px 48px 40px;border-top:1px solid var(--line);
+    display:flex;justify-content:space-between;align-items:center;
+    color:var(--ink-dim);font-size:13px;flex-wrap:wrap;gap:20px;
+  }
+  footer .socials{display:flex;gap:20px}
+  footer a:hover{color:var(--ink)}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:900px){
+    .wrap{padding:0 24px}
+    section{padding:80px 0}
+    nav.top{padding:14px 24px}
+    nav.top ul{display:none}
+    .pain-grid,.about-grid,.contact-grid,.faq-grid,.gift-inner{grid-template-columns:1fr;gap:40px}
+    .pain-points,.flow-steps,.test-grid{grid-template-columns:1fr}
+    .belief-example{grid-template-columns:1fr;padding:32px}
+    .belief-quote{border-right:none;border-top:2px solid var(--accent);padding-right:0;padding-top:20px}
+    .gift-box{padding:40px 24px}
+    footer{padding:40px 24px}
+  }
+</style>
+</head>
+<body>
+
+<div class="sky"></div>
+<div class="stars" id="stars"></div>
+
+<!-- ========== NAV ========== -->
+<nav class="top">
+  <div class="logo">
+    <div class="logo-mark"><img src="assets/logo.jpg" alt="נוה גורביץ’ ריפוי מהשורש"></div>
+    <div class="logo-text">נוה גורביץ’<br><span style="font-size:11px;letter-spacing:.2em;color:var(--ink-dim);font-family:'JetBrains Mono',monospace;text-transform:uppercase">ריפוי מהשורש</span></div>
+  </div>
+  <ul>
+    <li><a href="#pain">הבעיה</a></li>
+    <li><a href="#flow">איך זה עובד</a></li>
+    <li><a href="#about">על נוה</a></li>
+    <li><a href="#faq">שאלות</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">שיחת אפיון חינם ←</a>
+</nav>
+
+<!-- ========== HERO ========== -->
+<section class="hero">
+  <div class="hero-orb"></div>
+  <div class="wrap">
+    <div class="eyebrow mono">ריפוי תטא · עבודה מהשורש</div>
+    <h1>
+      הבעיה שלך<br>
+      <em>עמוקה יותר</em><br>
+      ממה שנדמה לך.
+    </h1>
+    <p class="lede">
+      לחצים בלילה, חרדות, קושי בהצבת גבולות — אלה לא הבעיות. אלה התסמינים.
+      בריפוי תטא אנחנו ניגשים לשורש: האמונות המגבילות ששוכנות בתת־המודע ומייצרות הכל מחדש.
+    </p>
+    <div class="hero-cta">
+      <a href="#contact" class="btn btn-primary">
+        <span>הזמנה לשיחת אפיון חינם</span>
+        <span class="arrow">←</span>
+      </a>
+      <a href="#gift" class="btn btn-ghost">
+        <span>מדיטציית מתנה (10 דק׳)</span>
+      </a>
+    </div>
+    <div class="hero-meta">
+      <span>עבודה ב־Google Meet</span>
+      <span>סשן של 90 דקות</span>
+      <span>שחרור של 8 אמונות שורשיות</span>
+    </div>
+  </div>
+</section>
+
+<!-- ========== PAIN ========== -->
+<section class="pain" id="pain">
+  <div class="wrap">
+    <div class="pain-grid">
+      <div>
+        <div class="eyebrow mono">זה לא אתה. זה מה שמפעיל אותך.</div>
+        <h2>אתה לא מתמודד עם לחצים —<br><span>אתה מרוויח מהם משהו.</span></h2>
+      </div>
+      <div>
+        <p>הסיבה שאתה לא ישן בלילה לא טמונה בלוח הזמנים. היא טמונה בטראומה שיושבת בתת־המודע, בלתי־נראית, ומפעילה אותך שוב ושוב לאותם דפוסים.</p>
+        <p>ברגע שתזהה איך הלחץ הזה משרת אותך — תוכל לרפא אותו מהשורש ולהשתחרר באמת. לא לנהל אותו. לשחרר.</p>
+      </div>
+    </div>
+
+    <div class="pain-points">
+      <div class="pain-card">
+        <div class="num">01</div>
+        <h3>שינה שלא מגיעה</h3>
+        <p>שעה שתיים בלילה, הראש לא מפסיק. לחץ בחזה שאי אפשר להסביר. מדיטציה לא עוזרת, כי הבעיה לא בראש שלך — היא מתחתיו.</p>
+      </div>
+      <div class="pain-card">
+        <div class="num">02</div>
+        <h3>צעד שלא נעשה</h3>
+        <p>העסק, המעבר, השיחה, ההחלטה. אתה יודע בדיוק מה לעשות. למה זה לא קורה? כי חלק ממך מקבל משהו מהקיפאון.</p>
+      </div>
+      <div class="pain-card">
+        <div class="num">03</div>
+        <h3>גבולות שמתמוססים</h3>
+        <p>אתה אומר כן כשאתה רוצה לא. סופג, נותן, מוותר. מתעורר מרוקן. זו לא חולשה — זו אמונה שמישהו השתיל בך מזמן.</p>
+      </div>
+    </div>
+
+    <div class="belief-example">
+      <div class="belief-quote">
+        "רק כשאני מוותר לעצמי, אני חופשי."
+        <small>דוגמה לאמונה מגבילה שורשית</small>
+      </div>
+      <div class="belief-result">
+        <h4>מה שהאמונה הזאת מייצרת בחיים שלך:</h4>
+        <ul>
+          <li>הלקאה עצמית אחרי כל ויתור קטן</li>
+          <li>תחושת עצלנות ואובדן משמעת</li>
+          <li>חוסר מוטיבציה שלא ברור מאיפה הוא בא</li>
+          <li>תחושה כרונית שאתה לא על הדרך הנכונה</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FLOW ========== -->
+<section class="flow" id="flow">
+  <div class="wrap">
+    <div class="flow-head">
+      <div class="eyebrow mono">איך נראה סשן ריפוי מהשורש</div>
+      <h2>ארבעה שלבים. שעה וחצי. שינוי שנשאר.</h2>
+      <p>הסשנים מתקיימים ב־Google Meet, במרחב נקי ושקט. לא צריך להכין כלום — רק להגיע נוכח.</p>
+    </div>
+    <div class="flow-steps">
+      <div class="step">
+        <div class="step-glyph"></div>
+        <div class="step-num">שלב 01</div>
+        <h3>פתיחה במדיטציה</h3>
+        <p>מדיטציית ניסיון קצרה שמביאה את המוח לגלי תטא — המצב שמאפשר גישה לתת־המודע.</p>
+      </div>
+      <div class="step">
+        <div class="step-glyph"></div>
+        <div class="step-num">שלב 02</div>
+        <h3>שאלות מכווינות</h3>
+        <p>אתה בוחר את הנושא. אני שואל שאלות שחושפות את האמונה השורשית שמייצרת את הבעיה.</p>
+      </div>
+      <div class="step">
+        <div class="step-glyph"></div>
+        <div class="step-num">שלב 03</div>
+        <h3>שחרור והחלפה</h3>
+        <p>משחררים את האמונה המגבילה. מחליפים אותה באמונה מקדמת שנטמעת בתת־המודע במקום.</p>
+      </div>
+      <div class="step">
+        <div class="step-glyph"></div>
+        <div class="step-num">שלב 04</div>
+        <h3>הטמעה</h3>
+        <p>טומנים את המידע החיובי החדש עמוק. יוצאים עם שיח פנימי בריא ו־8 אמונות שורשיות משוחררות.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== ABOUT ========== -->
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-photo">
+        <div class="halo"></div>
+        <img src="assets/nave.jpg" alt="נוה גורביץ’">
+        <div class="caption"><span>נוה · 2026</span></div>
+      </div>
+      <div>
+        <div class="eyebrow mono">נעים להכיר</div>
+        <h2>שמי נוה גורביץ’.<br>הייתי במקום שאתה נמצא בו <em>עכשיו</em>.</h2>
+        <p>בתיכון סבלתי מהתקפי חרדה. לחץ קבוע בחזה, בלבול בתקופות עמוסות, תחושה כרונית שמשהו אצלי לא עובד. חיפשתי תשובות אצל פסיכולוגים, ברפואה אלטרנטיבית — כל אחד עזר קצת. אף אחד לא שחרר.</p>
+        <p>לפני שנה נחשפתי לשיטת תטא הילינג. בסשן אחד חוויתי משהו שלא חוויתי קודם: שינוי שהרגיש אמיתי. נרשמתי לקורסים, ניקיתי אמונות מגבילות, ויצאתי מהעבודה שלא אהבתי. טסתי לבד לסרי לנקה, חזרתי מחובר.</p>
+        <p>היום אני עושה את מה שנולדתי לעשות — ועוזר לאנשים כמוך לעבור את אותו שינוי.</p>
+        <div class="about-stats">
+          <div class="stat"><div class="n">200+</div><div class="l">סשנים</div></div>
+          <div class="stat"><div class="n">98%</div><div class="l">המלצה חוזרת</div></div>
+          <div class="stat"><div class="n">4</div><div class="l">הסמכות תטא</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== GIFT / MEDITATION ========== -->
+<section class="gift" id="gift">
+  <div class="wrap">
+    <div class="gift-box">
+      <div class="gift-inner">
+        <div>
+          <div class="eyebrow mono">מתנה ממני אליך</div>
+          <h2>מדיטציית איזון ל־7 מרכזי האנרגייה.</h2>
+          <p>הקלטה של 10 דקות שהכנתי בעצמי. עוזרת לאזן את שבע הצ׳אקרות, לשחרר מתחים בגוף, ולסיים את היום במקום אחר לגמרי. תקבל אותה כשנשוחח, יחד עם כלים פרקטיים להמשך.</p>
+          <a href="#contact" class="btn btn-primary">
+            <span>רוצה לקבל</span>
+            <span class="arrow">←</span>
+          </a>
+        </div>
+        <div>
+          <div class="audio-mock">
+            <button class="play-btn" aria-label="Play">▶</button>
+            <div class="audio-waveform" id="wave"></div>
+            <div class="audio-time">10:00</div>
+          </div>
+          <div class="chakra-stack">
+            <div class="chakra-row"><div class="chakra-dot" style="background:#c74b4b;color:#c74b4b"></div><span>כתר · שורש</span><span class="hz">396 Hz</span></div>
+            <div class="chakra-row"><div class="chakra-dot" style="background:#e67c39;color:#e67c39"></div><span>סקרל</span><span class="hz">417 Hz</span></div>
+            <div class="chakra-row"><div class="chakra-dot" style="background:#e6c74a;color:#e6c74a"></div><span>מקלעת השמש</span><span class="hz">528 Hz</span></div>
+            <div class="chakra-row"><div class="chakra-dot" style="background:#6fb37a;color:#6fb37a"></div><span>לב</span><span class="hz">639 Hz</span></div>
+            <div class="chakra-row"><div class="chakra-dot" style="background:#4a9ed4;color:#4a9ed4"></div><span>גרון</span><span class="hz">741 Hz</span></div>
+            <div class="chakra-row"><div class="chakra-dot" style="background:#5a5cc4;color:#5a5cc4"></div><span>עין שלישית</span><span class="hz">852 Hz</span></div>
+            <div class="chakra-row"><div class="chakra-dot" style="background:#a46fd4;color:#a46fd4"></div><span>כתר עליון</span><span class="hz">963 Hz</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== TESTIMONIALS ========== -->
+<section class="testimonials">
+  <div class="wrap">
+    <div class="eyebrow mono">מה מספרים אחרי סשן</div>
+    <div class="test-grid">
+      <div class="test-card">
+        <p class="test-quote">"נכנסתי לסשן עם בעיית שינה של שנים. יצאתי עם הבנה מה באמת קרה שם — ולילה ראשון של שינה אמיתית מאז שאני זוכרת."</p>
+        <div class="test-author">
+          <div class="test-avatar">ש</div>
+          <div>
+            <div class="test-name">שיר מ.</div>
+            <div class="test-role">מעצבת · תל אביב</div>
+          </div>
+        </div>
+      </div>
+      <div class="test-card">
+        <p class="test-quote">"לא האמנתי לדברים האלה. הגעתי ציני. אחרי שלושה סשנים עזבתי עבודה ששנאתי חמש שנים. נוה עושה את זה בלי דרמה."</p>
+        <div class="test-author">
+          <div class="test-avatar">ד</div>
+          <div>
+            <div class="test-name">דניאל ק.</div>
+            <div class="test-role">מפתח · חיפה</div>
+          </div>
+        </div>
+      </div>
+      <div class="test-card">
+        <p class="test-quote">"הצבת גבולות הייתה מילה מלוכלכת אצלי. עכשיו זה פשוט משהו שאני עושה. כאילו החלפתי תוכנה פנימית."</p>
+        <div class="test-author">
+          <div class="test-avatar">ע</div>
+          <div>
+            <div class="test-name">עדי ל.</div>
+            <div class="test-role">מורה · ירושלים</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FAQ ========== -->
+<section class="faq" id="faq">
+  <div class="wrap">
+    <div class="faq-grid">
+      <div>
+        <div class="eyebrow mono">שאלות נפוצות</div>
+        <h2 style="font-family:'Mamilla',serif;font-weight:500;font-size:clamp(30px,3.5vw,44px);line-height:1.1;margin:0;letter-spacing:-.01em">
+          הכל שרצית לדעת<br>לפני שאתה מתחיל.
+        </h2>
+        <p style="color:var(--ink-soft);margin-top:20px;font-size:15px">לא מצאת תשובה? כתוב לי בטופס למטה — אחזור אליך תוך יום עבודה.</p>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item" open>
+          <summary><h3>מה זה בעצם תטא הילינג?</h3><span class="faq-toggle">+</span></summary>
+          <div class="faq-answer">שיטת ריפוי אנרגטית שעובדת דרך גלי מוח בתדר תטא — המצב שבו אנחנו רגע לפני השינה או רגע אחרי יקיצה. במצב הזה יש לנו גישה ישירה לתת־המודע, שם יושבות האמונות שמעצבות את המציאות שלנו.</div>
+        </details>
+        <details class="faq-item">
+          <summary><h3>כמה סשנים צריך כדי לראות שינוי?</h3><span class="faq-toggle">+</span></summary>
+          <div class="faq-answer">סשן אחד כבר משחרר 8 אמונות שורשיות ומורגש מיידית. לעבודה עמוקה על תחום חיים שלם — מערכת יחסים, שפע, בריאות — ממליץ על סדרה של 3 עד 5 סשנים.</div>
+        </details>
+        <details class="faq-item">
+          <summary><h3>צריך להכין משהו לקראת הסשן?</h3><span class="faq-toggle">+</span></summary>
+          <div class="faq-answer">רק לדאוג למקום שקט, אוזניות, וחצי שעה חופשית אחרי הסשן בלי לחזור ישר לעומס. הכל השאר קורה יחד בזמן אמת.</div>
+        </details>
+        <details class="faq-item">
+          <summary><h3>זה מתאים גם אם אני ציני לגבי דברים רוחניים?</h3><span class="faq-toggle">+</span></summary>
+          <div class="faq-answer">בהחלט. רבים מהלקוחות שלי הגיעו בדיוק ממקום הזה. לא צריך להאמין בכלום — צריך רק להיות פתוח לחוויה. התוצאה מדברת בעד עצמה.</div>
+        </details>
+        <details class="faq-item">
+          <summary><h3>כמה עולה סשן?</h3><span class="faq-toggle">+</span></summary>
+          <div class="faq-answer">שיחת האפיון הראשונה — בחינם. ממנה נבין יחד מה המקום הנכון להתחיל בו, ונדבר על חבילות וסדרות. המחיר מפורט בשיחה, אחרי שאבין את הצורך שלך.</div>
+        </details>
+        <details class="faq-item">
+          <summary><h3>איך סשן אונליין עובד אם זו אנרגייה?</h3><span class="faq-toggle">+</span></summary>
+          <div class="faq-answer">אנרגייה לא כפופה למרחק. עבדתי עם אנשים בסרי לנקה, אירופה וארה"ב. החיבור דרך Google Meet עובד באותה עוצמה בדיוק כמו פנים אל פנים.</div>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CONTACT ========== -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div>
+        <div class="eyebrow mono">קריאה לפעולה</div>
+        <h2>שיחת אפיון<br><em>חינם</em> של 30 דקות.</h2>
+        <p class="sub">בשיחה נאפיין יחד מה חוסם אותך כרגע, תקבל כלים פרקטיים להמשך, ומדיטציה מוקלטת של 10 דקות לאיזון 7 מרכזי האנרגייה בגוף — כמתנת פתיחה.</p>
+
+        <div class="contact-meta">
+          <div><span class="mono">איפה</span><span>Google Meet · שיחת וידאו</span></div>
+          <div><span class="mono">משך</span><span>30 דקות</span></div>
+          <div><span class="mono">עלות</span><span>חינם לחלוטין · מתנה נלווית</span></div>
+          <div><span class="mono">זמינות</span><span>ימים א׳–ה׳, בין 10:00 ל־20:00</span></div>
+        </div>
+      </div>
+
+      <form class="contact-form" onsubmit="event.preventDefault();submitForm(this)">
+        <div class="field">
+          <label for="name">שם מלא</label>
+          <input id="name" type="text" required placeholder="איך לקרוא לך">
+        </div>
+        <div class="field">
+          <label for="phone">טלפון</label>
+          <input id="phone" type="tel" required placeholder="050-0000000">
+        </div>
+        <div class="field">
+          <label for="email">מייל</label>
+          <input id="email" type="email" required placeholder="name@example.com">
+        </div>
+        <div class="field">
+          <label for="topic">מה הכי מעסיק אותך עכשיו?</label>
+          <select id="topic" required>
+            <option value="">בחר תחום</option>
+            <option>שינה / חרדות / לחצים</option>
+            <option>זוגיות ומערכות יחסים</option>
+            <option>שפע, פרנסה, קריירה</option>
+            <option>גבולות וביטחון עצמי</option>
+            <option>חיפוש ייעוד ומשמעות</option>
+            <option>אחר</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="note">משהו שחשוב שאדע (לא חובה)</label>
+          <textarea id="note" placeholder="כמה משפטים במילים שלך"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary form-submit">
+          <span>שלח ונדבר</span>
+          <span class="arrow">←</span>
+        </button>
+        <div class="form-note">חוזר אליך תוך 24 שעות. הפרטים שלך נשארים אצלי בלבד.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="logo">
+    <div class="logo-mark"><img src="assets/logo.jpg" alt=""></div>
+    <div class="logo-text">נוה גורביץ’ · ריפוי מהשורש</div>
+  </div>
+  <div class="socials">
+    <a href="#">Instagram</a>
+    <a href="#">WhatsApp</a>
+    <a href="tel:">050-0000000</a>
+  </div>
+  <div>© 2026 · כל הזכויות שמורות</div>
+</footer>
+
+<script>
+  /* ---------- DEFAULT PALETTE ---------- */
+  document.documentElement.setAttribute("data-palette", "twilight");
+
+  /* ---------- STARS ---------- */
+  const starsEl = document.getElementById("stars");
+  const starCount = 80;
+  let starHtml = "";
+  for(let i=0;i<starCount;i++){
+    const x = Math.random()*100;
+    const y = Math.random()*100;
+    const d = (Math.random()*4 + 2).toFixed(1);
+    const delay = (Math.random()*4).toFixed(1);
+    const sz = (Math.random()*1.5 + 1).toFixed(1);
+    starHtml += `<i style="left:${x}%;top:${y}%;width:${sz}px;height:${sz}px;animation-duration:${d}s;animation-delay:${delay}s"></i>`;
+  }
+  starsEl.innerHTML = starHtml;
+
+  /* ---------- WAVEFORM ---------- */
+  const wave = document.getElementById("wave");
+  let waveHtml = "";
+  for(let i=0;i<60;i++){
+    const h = Math.abs(Math.sin(i*0.4))*60 + Math.random()*30 + 10;
+    waveHtml += `<i style="height:${Math.min(h,90)}%"></i>`;
+  }
+  wave.innerHTML = waveHtml;
+
+  /* ---------- FORM ---------- */
+  function submitForm(form){
+    const btn = form.querySelector("button[type=submit]");
+    const orig = btn.innerHTML;
+    btn.innerHTML = '<span>נשלח ✓</span>';
+    btn.style.background = 'var(--accent)';
+    setTimeout(()=>{
+      form.reset();
+      btn.innerHTML = orig;
+      btn.style.background = '';
+    }, 2500);
+  }
+
+  /* ---------- SMOOTH SCROLL ---------- */
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{
+    a.addEventListener("click",(e)=>{
+      const id = a.getAttribute("href");
+      if(id.length>1){
+        const target = document.querySelector(id);
+        if(target){
+          e.preventDefault();
+          window.scrollTo({top: target.offsetTop - 60, behavior:"smooth"});
+        }
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
