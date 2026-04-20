@@ -345,6 +345,26 @@
     text-align:center;padding:4px 0 6px;
   }
 
+  /* ---------- CASE STUDY ---------- */
+  .case-study{padding-top:80px}
+  .case-head{text-align:center;margin-bottom:56px}
+  .case-head h2{
+    font-family:"Shilo",serif;font-weight:500;
+    font-size:clamp(34px,4vw,56px);line-height:1.1;margin:14px auto 0;max-width:20ch;letter-spacing:-.01em;
+  }
+  .case-head h2 em{font-style:italic;color:var(--accent)}
+  .case-head p{color:var(--ink-soft);max-width:48ch;margin:18px auto 0;font-weight:300}
+  .case-frame{
+    position:relative;max-width:820px;margin:0 auto;
+    padding:14px;border:1px solid var(--line);border-radius:24px;
+    background:var(--surface,rgba(255,255,255,.55));
+    box-shadow:0 30px 60px -30px var(--glow-a);
+  }
+  .case-video{
+    width:100%;display:block;border-radius:14px;
+    background:#000;max-height:78vh;
+  }
+
   /* ---------- FAQ ---------- */
   .faq-grid{display:grid;grid-template-columns:1fr 2fr;gap:80px;align-items:start}
   .faq-grid > div:first-child{position:sticky;top:120px}
@@ -485,6 +505,7 @@
     <li><a href="#pain">הבעיה</a></li>
     <li><a href="#flow">איך זה עובד</a></li>
     <li><a href="#about">על נוה</a></li>
+    <li><a href="#case-study">סיפור אמיתי</a></li>
     <li><a href="#faq">שאלות</a></li>
   </ul>
   <a href="#contact" class="nav-cta">שיחת אפיון חינם ←</a>
@@ -688,6 +709,23 @@
         <img src="assets/testimonials/testi-5.jpg" alt="המלצה מוואטסאפ ·הכי פשוט שיש, זרם בקלילות" loading="lazy">
         <figcaption>לקוח · אחרי סשן</figcaption>
       </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CASE STUDY ========== -->
+<section class="case-study" id="case-study">
+  <div class="wrap">
+    <div class="case-head">
+      <div class="eyebrow mono">קייס סטאדי · סיפור אמיתי</div>
+      <h2>תהליך בווידאו.<br><em>אוראל מספר.</em></h2>
+      <p>עדות קצרה של לקוח על מה שהסשן פתח עבורו. בלי עריכה, בלי סקריפט.</p>
+    </div>
+    <div class="case-frame">
+      <video class="case-video" controls preload="metadata" playsinline>
+        <source src="assets/case-study.mp4" type="video/mp4">
+        הדפדפן שלך לא תומך בניגון וידאו.
+      </video>
     </div>
   </div>
 </section>
