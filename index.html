@@ -369,19 +369,19 @@
     width:100%;display:block;border-radius:14px;
     background:#000;max-height:78vh;
   }
+  .case-controls{
+    display:flex;justify-content:center;align-items:center;gap:12px;
+    margin-top:22px;
+  }
   .case-nav{
-    position:absolute;top:50%;transform:translateY(-50%);
-    width:44px;height:44px;border-radius:50%;
+    width:42px;height:42px;border-radius:50%;
     background:var(--ink);color:var(--bg-0);
-    display:grid;place-items:center;font-size:18px;font-weight:400;
+    display:grid;place-items:center;font-size:17px;font-weight:400;
     box-shadow:0 10px 30px -10px var(--glow-a), 0 0 0 1px var(--line);
     transition:transform .3s, background .3s;
-    z-index:5;
   }
-  .case-nav:hover{transform:translateY(-50%) scale(1.08);background:var(--accent)}
-  .case-nav--prev{right:-22px}
-  .case-nav--next{left:-22px}
-  .case-dots{display:flex;justify-content:center;gap:10px;margin-top:22px}
+  .case-nav:hover{transform:scale(1.08);background:var(--accent)}
+  .case-dots{display:flex;justify-content:center;gap:10px;margin-top:14px}
   .case-dot{
     width:10px;height:10px;border-radius:50%;
     background:var(--line);border:1px solid transparent;
@@ -851,8 +851,10 @@
           </div>
         </div>
       </div>
-      <button class="case-nav case-nav--prev" aria-label="הקודם" type="button">←</button>
-      <button class="case-nav case-nav--next" aria-label="הבא" type="button">→</button>
+      <div class="case-controls">
+        <button class="case-nav case-nav--prev" aria-label="הקודם" type="button">←</button>
+        <button class="case-nav case-nav--next" aria-label="הבא" type="button">→</button>
+      </div>
       <div class="case-dots" id="caseDots">
         <button class="case-dot is-active" aria-label="וידאו 1" data-i="0" type="button"></button>
         <button class="case-dot" aria-label="וידאו 2" data-i="1" type="button"></button>
