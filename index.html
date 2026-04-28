@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
+<!-- Plausible: הגדרי ב-Plausible את אותו דומיין כמו ב-data-domain (ולהחליף את example.com בדומיין האמיתי) -->
+<script defer data-domain="example.com" src="https://plausible.io/js/script.js"></script>
 <title>נוה גורביץ’ · ריפוי מהשורש</title>
 <meta name="description" content="נוה גורביץ’ · ריפוי מהשורש. ריפוי תטא שמטפל באמונות המגבילות ששוכנות בתת־המודע. סשנים ב־Google Meet. שיחת אפיון חינם + מדיטציית מתנה." />
 <style>
@@ -619,7 +621,7 @@
     <li><a href="#case-study">סיפור אמיתי</a></li>
     <li><a href="#faq">שאלות</a></li>
   </ul>
-  <a href="#contact" class="nav-cta">שיחת אפיון חינם ←</a>
+  <a href="#contact" class="nav-cta plausible-event-name=Lead">שיחת אפיון חינם ←</a>
 </nav>
 
 <!-- ========== HERO ========== -->
@@ -636,11 +638,11 @@
       בריפוי תטא ניגשים לשורש: האמונות המגבילות שמייצרות את כל זה מחדש.
     </p>
     <div class="hero-cta">
-      <a href="#contact" class="btn btn-primary">
+      <a href="#contact" class="btn btn-primary plausible-event-name=Lead">
         <span>הזמנה לשיחת אפיון חינם</span>
         <span class="arrow">←</span>
       </a>
-      <a href="#gift" class="btn btn-ghost">
+      <a href="#gift" class="btn btn-ghost plausible-event-name=Lead">
         <span>מדיטציית מתנה (10 דק׳)</span>
       </a>
     </div>
@@ -768,7 +770,7 @@
           <div class="eyebrow mono">מתנה ממני אליך</div>
           <h2>מדיטציית איזון<br>ל־7 מרכזי האנרגייה.</h2>
           <p>הקלטה של 10 דקות שהכנתי בעצמי. עוזרת לאזן את שבע הצ׳אקרות, לשחרר מתחים בגוף, ולסיים את היום במקום אחר לגמרי. תקבל אותה כשנשוחח, יחד עם כלים פרקטיים להמשך.</p>
-          <a href="#contact" class="btn btn-primary">
+          <a href="#contact" class="btn btn-primary plausible-event-name=Lead">
             <span>רוצה לקבל</span>
             <span class="arrow">←</span>
           </a>
@@ -1000,6 +1002,7 @@
 
   /* ---------- FORM ---------- */
   function submitForm(form){
+    try { window.plausible && window.plausible("Lead"); } catch(_){}
     const btn = form.querySelector("button[type=submit]");
     const orig = btn.innerHTML;
     btn.innerHTML = '<span>נשלח ✓</span>';
@@ -1074,6 +1077,13 @@
       x0=null;
     },{passive:true});
   })();
+
+  /* LEAD — פלוסיבל: אירוע Lead בלחיצה על CTA (וואטסאפ / טלפון כשיש) */
+  document.querySelectorAll('.plausible-event-name\\=Lead, a[href*="wa.me/"], a[href^="tel:+"]').forEach(el=>{
+    el.addEventListener("click",()=>{
+      try { window.plausible && window.plausible("Lead"); } catch(_){}
+    });
+  });
 
   /* ---------- SMOOTH SCROLL ---------- */
   document.querySelectorAll('a[href^="#"]').forEach(a=>{
