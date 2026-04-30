@@ -12,6 +12,11 @@
 <title>נוה גורביץ’ · ריפוי מהשורש</title>
 <meta name="description" content="נוה גורביץ’ · ריפוי מהשורש. ריפוי תטא שמטפל באמונות המגבילות ששוכנות בתת־המודע. סשנים ב־Google Meet. שיחת אפיון חינם + מדיטציית מתנה." />
 <style>
+  /*
+    שיפורי UI (מפתח טיפוגרפי/מרווחים/ניגודיות ראשי):
+    רשת 8px, רוחב מקסימלי לתוכן ~1344px ולטקסט ~68ch,
+    סולם ברור והדגשת CTA ראשי, מצב תנועה מופחת, מוקד תצוגה לכפתורים/קישורים/שדות
+  */
   /* ---------- PREMIUM FONTUP FACES ---------- */
   @font-face{font-family:"Shilo";src:url("fonts/Shilo-Light.woff2") format("woff2");font-weight:300;font-display:swap}
   @font-face{font-family:"Shilo";src:url("fonts/Shilo-Regular.woff2") format("woff2");font-weight:400;font-display:swap}
@@ -59,19 +64,51 @@
     --glow-a:rgba(105,179,142,.45); --glow-b:rgba(214,184,122,.2);
   }
 
+  /* רשת 8px · רוחב תוכן · קנה מידה טיפוגרפי — נשען על אותה משפחה (Shilo) ב־2–3 משקלים */
+  :root{
+    --space-1:8px; --space-2:16px; --space-3:24px; --space-4:32px; --space-5:40px;
+    --space-6:48px; --space-7:56px; --space-8:64px; --space-10:80px; --space-12:96px;
+    --space-14:112px; --space-18:144px;
+    --content-max:1344px;
+    --prose:68ch;
+    --text-body:17px;
+    --text-lead:clamp(17px,1.9vw,20px);
+    --text-caption:clamp(12px,.95vw,14px);
+    --leading-tight:1.08; --leading-snug:1.25; --leading-body:1.65;
+    --radius-sm:12px; --radius-md:20px; --radius-lg:28px;
+    --motion:200ms cubic-bezier(.2,.7,.2,1);
+  }
+
   *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
   html,body{margin:0;padding:0}
   body{
     background:var(--bg-0);
     color:var(--ink);
     font-family:"Shilo","Helvetica Neue",sans-serif;
     font-weight:300;
-    line-height:1.65;
-    font-size:17px;
-    letter-spacing:.005em;
+    line-height:var(--leading-body);
+    font-size:var(--text-body);
+    letter-spacing:.01em;
     -webkit-font-smoothing:antialiased;
     overflow-x:hidden;
   }
+
+  /* מיקוד מקלדת — ניגוד מול רקע (WCAG focus visible) */
+  :focus{outline:none}
+  :focus-visible{
+    outline:2px solid var(--accent);
+    outline-offset:3px;
+  }
+  .btn:focus-visible,.nav-cta:focus-visible,.play-btn:focus-visible,.case-nav:focus-visible,.case-dot:focus-visible{outline-offset:2px}
+
+  .skip-link{
+    position:absolute;top:-100px;right:var(--space-2);z-index:200;
+    padding:var(--space-2) var(--space-3);background:var(--ink);color:var(--bg-0);
+    border-radius:var(--radius-sm);font-weight:500;font-size:14px;transition:top var(--motion);
+  }
+  .skip-link:focus{top:var(--space-2)}
+  main#main{scroll-margin-top:76px}
   .serif{font-family:"Shilo",serif;font-weight:500}
   .mono{font-family:"Shilo",serif;font-size:11px;font-weight:300;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-dim)}
   .hero-meta,.pain-card p,.step p,.chakra-row span,.chakra-row .hz,.audio-time,
@@ -101,13 +138,16 @@
   @keyframes tw{0%,100%{opacity:.12;transform:scale(.8)}50%{opacity:.4;transform:scale(1.1)}}
 
   /* ---------- NAV ---------- */
+  /* ---------- NAV — מרווחים אחידים, מטרת מגע ≥44px ל־CTA ---------- */
   nav.top{
     position:fixed;top:0;left:0;right:0;z-index:50;
-    padding:18px 48px;display:flex;align-items:center;justify-content:space-between;
+    padding:var(--space-3) var(--space-6);display:flex;align-items:center;justify-content:space-between;
     backdrop-filter:blur(14px);
     background:linear-gradient(to bottom, var(--nav-fade, rgba(11,7,22,.65)), transparent);
   }
   .logo{display:flex;align-items:center;gap:10px}
+  a.logo-block{color:inherit;text-decoration:none;border-radius:var(--radius-sm)}
+  a.logo-block:focus-visible{outline-offset:4px}
   .logo-mark{
     width:38px;height:38px;border-radius:50%;
     background:#fff;
@@ -119,19 +159,21 @@
   nav.top ul{display:flex;gap:34px;list-style:none;margin:0;padding:0;font-size:14px;color:var(--ink-soft)}
   nav.top ul a:hover{color:var(--ink)}
   .nav-cta{
-    padding:9px 18px;border:1px solid var(--line);border-radius:999px;font-size:13px;
-    transition:.3s;background:var(--surface-soft,rgba(255,255,255,.02));
+    min-height:44px;padding:10px 22px;border:1px solid var(--line);border-radius:999px;font-size:14px;
+    transition:color var(--motion),border-color var(--motion),background var(--motion),box-shadow var(--motion);
+    background:var(--surface-soft,rgba(255,255,255,.02));
+    display:inline-flex;align-items:center;justify-content:center;
   }
   .nav-cta:hover{border-color:var(--accent);color:var(--accent)}
 
-  /* ---------- LAYOUT ---------- */
-  .wrap{max-width:1240px;margin:0 auto;padding:0 48px}
-  section{position:relative;padding:140px 0}
+  /* ---------- LAYOUT — רוחב מקסימלי ~1344px, קטעים מופרדים ברווח אנכי אחיד ---------- */
+  .wrap{max-width:var(--content-max);margin:0 auto;padding:0 var(--space-6)}
+  section{position:relative;padding:var(--space-18) 0}
   .eyebrow{display:inline-flex;align-items:center;gap:10px;margin-bottom:22px}
   .eyebrow::before{content:"";width:28px;height:1px;background:var(--accent)}
 
   /* ---------- HERO ---------- */
-  .hero{padding-top:190px;padding-bottom:120px;text-align:center;position:relative}
+  .hero{padding-top:calc(180px + var(--space-3));padding-bottom:var(--space-12);text-align:center;position:relative}
   .hero-orb{
     position:absolute;top:40px;left:50%;transform:translateX(-50%);
     width:720px;height:720px;max-width:90vw;max-height:90vw;
@@ -145,22 +187,26 @@
   }
   @keyframes pulse{0%,100%{transform:translateX(-50%) scale(1)}50%{transform:translateX(-50%) scale(1.05)}}
   .hero h1{
-    font-family:"Shilo",serif;font-weight:500;
-    font-size:clamp(42px,6.5vw,96px);line-height:1.05;letter-spacing:-.01em;
+    font-family:"Shilo",serif;font-weight:600;
+    font-size:clamp(40px,6.2vw,92px);line-height:var(--leading-tight);letter-spacing:-.03em;
     margin:0 auto;max-width:14ch;
   }
-  .hero h1 em{font-style:normal;color:var(--accent);font-weight:500}
+  .hero h1 em{font-style:normal;color:var(--accent);font-weight:600}
   .hero p.lede{
-    max-width:56ch;margin:32px auto 0;
-    font-size:20px;color:var(--ink-soft);font-weight:300;
+    max-width:var(--prose);margin:var(--space-4) auto 0;
+    font-size:var(--text-lead);color:var(--ink-soft);font-weight:300;
     text-wrap:pretty;
   }
-  .hero-cta{margin-top:48px;display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+  .hero-cta{margin-top:var(--space-6);display:flex;gap:var(--space-2);justify-content:center;flex-wrap:wrap}
   .btn{
-    display:inline-flex;align-items:center;gap:10px;
-    padding:16px 32px;border-radius:999px;
+    display:inline-flex;align-items:center;justify-content:center;gap:10px;
+    min-height:48px;padding:14px 28px;border-radius:999px;
     font-size:15px;font-weight:500;
-    transition:transform .3s, box-shadow .3s, background .3s;
+    transition:transform var(--motion),box-shadow var(--motion),background var(--motion),border-color var(--motion),color var(--motion);
+  }
+  .hero-cta .btn-primary{
+    min-height:52px;padding:16px 36px;font-size:17px;font-weight:600;
+    box-shadow:0 12px 44px -12px var(--glow-a), 0 0 0 1px rgba(255,255,255,.12);
   }
   .btn-primary{
     background:var(--ink);color:var(--bg-0);
@@ -175,8 +221,8 @@
   .btn:hover .arrow{transform:translateX(-4px)}
 
   .hero-meta{
-    margin-top:80px;display:flex;gap:48px;justify-content:center;flex-wrap:wrap;
-    color:var(--ink-dim);font-size:13px;
+    margin-top:var(--space-10);display:flex;gap:var(--space-6);justify-content:center;flex-wrap:wrap;
+    color:var(--ink-dim);font-size:var(--text-caption);line-height:var(--leading-snug);
   }
   .hero-meta span{display:flex;align-items:center;gap:8px}
   .hero-meta span::before{content:"";width:5px;height:5px;background:var(--accent);border-radius:50%}
@@ -191,7 +237,8 @@
   .pain h2 span{color:var(--accent-2);font-style:italic;font-family:"Shilo",serif}
   .hl{color:var(--accent-2)}
   .hl-line{display:inline;background-image:linear-gradient(var(--accent-2),var(--accent-2));background-repeat:no-repeat;background-size:100% 2px;background-position:0 100%;padding-bottom:2px}
-  .pain p{color:var(--ink-soft);font-size:17px;margin:0 0 20px}
+  .pain p{color:var(--ink-soft);font-size:var(--text-body);margin:0 0 var(--space-3);line-height:var(--leading-body)}
+  .pain-grid > div:last-child p{max-width:var(--prose)}
   .pain-points{
     margin-top:60px;grid-column:1/-1;
     display:grid;grid-template-columns:repeat(3,1fr);gap:2px;
@@ -208,9 +255,10 @@
   .pain-card p{font-size:15px;color:var(--ink-soft);margin:0;line-height:1.6}
 
   .belief-example{
-    margin-top:80px;padding:48px;border:1px solid var(--line);border-radius:24px;
-    background:radial-gradient(ellipse at top right, rgba(139,111,240,.12), transparent 60%);
-    display:grid;grid-template-columns:auto 1fr;gap:40px;align-items:center;
+    margin-top:var(--space-10);padding:var(--space-6);border:1px solid var(--line);border-radius:var(--radius-lg);
+    background:
+      radial-gradient(ellipse at top right, var(--glow-a), transparent 58%);
+    display:grid;grid-template-columns:auto 1fr;gap:var(--space-5);align-items:center;
   }
   .belief-quote{
     font-family:"Shilo",serif;font-style:italic;font-size:28px;line-height:1.4;
@@ -291,9 +339,9 @@
   .gift{padding:0}
   .gift-box{
     position:relative;
-    border:1px solid var(--line);border-radius:32px;
-    padding:80px 64px;overflow:hidden;
-    background:linear-gradient(135deg, rgba(139,111,240,.08), rgba(201,168,106,.05));
+    border:1px solid var(--line);border-radius:var(--radius-xl);
+    padding:var(--space-10) var(--space-8);overflow:hidden;
+    background:linear-gradient(135deg, rgba(74,163,159,.06), rgba(138,165,72,.055));
   }
   .gift-box::before{
     content:"";position:absolute;inset:-50%;
@@ -380,7 +428,7 @@
     margin-top:22px;
   }
   .case-nav{
-    width:42px;height:42px;border-radius:50%;
+    width:44px;height:44px;min-width:44px;min-height:44px;border-radius:50%;
     background:var(--ink);color:var(--bg-0);
     display:grid;place-items:center;font-size:17px;font-weight:400;
     box-shadow:0 10px 30px -10px var(--glow-a), 0 0 0 1px var(--line);
@@ -404,6 +452,10 @@
   /* ---------- FAQ ---------- */
   .faq-grid{display:grid;grid-template-columns:1fr 2fr;gap:80px;align-items:start}
   .faq-grid > div:first-child{position:sticky;top:120px}
+  .faq-intro h2{
+    font-family:"Shilo",serif;font-weight:600;font-size:clamp(30px,3.4vw,44px);line-height:var(--leading-snug);margin:0;letter-spacing:-.02em;
+  }
+  .faq-lede{color:var(--ink-soft);margin-top:var(--space-3);font-size:15px;line-height:var(--leading-body);max-width:var(--prose)}
   .faq-list{border-top:1px solid var(--line)}
   .faq-item{border-bottom:1px solid var(--line);padding:28px 0;cursor:pointer}
   .faq-item summary{list-style:none;display:flex;justify-content:space-between;align-items:center;gap:24px}
@@ -435,12 +487,13 @@
   .field{display:grid;gap:8px}
   .field label{font-family:"Shilo",serif;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-dim)}
   .field input, .field textarea, .field select{
-    background:transparent;border:none;border-bottom:1px solid var(--line);
-    padding:10px 0;color:var(--ink);font-family:inherit;font-size:15px;
-    transition:border-color .3s;
+    background:transparent;border:none;border-bottom:2px solid var(--line);
+    padding:var(--space-2) 0;color:var(--ink);font-family:inherit;font-size:15px;
+    transition:border-color var(--motion);
     font-weight:300;
+    min-height:44px;border-radius:0;
   }
-  .field input:focus, .field textarea:focus, .field select:focus{outline:none;border-color:var(--accent)}
+  .field input:focus, .field textarea:focus, .field select:focus{border-color:var(--accent)}
   .field textarea{resize:vertical;min-height:80px}
   .field select{appearance:none;background-image:linear-gradient(45deg, transparent 50%, var(--ink-soft) 50%);background-position:left 6px center;background-size:10px 10px;background-repeat:no-repeat;padding-left:28px}
   .form-submit{margin-top:8px;width:100%;justify-content:center}
@@ -543,14 +596,18 @@
 
   /* reduced motion kill switch */
   @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
     *,*::before,*::after{animation-duration:.001s!important;animation-iteration-count:1!important;transition-duration:.001s!important}
     .reveal{opacity:1!important;transform:none!important}
     .hero h1 .line,.hero p.lede,.hero-cta,.hero-meta{opacity:1!important;animation:none!important}
   }
 
-  /* ---------- RESPONSIVE ---------- */
+  /* ---------- RESPONSIVE — breakpoints ~900 / ~640 מתואמים עם נקודות 768/נייד ---------- */
+  @media (max-width:1024px){
+    .pain-grid,.about-grid,.contact-grid,.faq-grid{gap:var(--space-8)}
+  }
   @media (max-width:900px){
-    .wrap{padding:0 24px}
+    .wrap{padding:0 var(--space-3)}
     section{padding:80px 0}
     nav.top{padding:14px 20px;gap:12px}
     nav.top ul{display:none}
@@ -584,7 +641,7 @@
     .gift-inner p{font-size:15px;margin-bottom:24px}
     .gift-inner .btn{width:100%;justify-content:center}
     .audio-mock{padding:18px;gap:12px}
-    .play-btn{width:42px;height:42px;font-size:14px}
+    .play-btn{width:44px;height:44px;min-width:44px;min-height:44px;font-size:14px}
     .chakra-row{gap:10px;padding:8px 0}
     .chakra-row span{font-size:12px}
     .chakra-row .hz{font-size:10px}
@@ -612,12 +669,16 @@
 <div class="sky"></div>
 <div class="stars" id="stars"></div>
 
+<a class="skip-link" href="#main">דלג לתוכן העמוד</a>
+
 <!-- ========== NAV ========== -->
-<nav class="top">
+<nav class="top" aria-label="ניווט ראשי">
+  <a class="logo-block" href="#main">
   <div class="logo">
     <div class="logo-mark"><img src="assets/logo.jpg" alt="נוה גורביץ’ ריפוי מהשורש"></div>
     <div class="logo-text">נוה גורביץ’<br><span style="font-size:11px;letter-spacing:.2em;color:var(--ink-dim);font-family:'Shilo',serif;text-transform:uppercase">ריפוי מהשורש</span></div>
   </div>
+  </a>
   <ul>
     <li><a href="#pain">הבעיה</a></li>
     <li><a href="#flow">איך זה עובד</a></li>
@@ -627,6 +688,8 @@
   </ul>
   <a href="#contact" class="nav-cta plausible-event-name=Lead">שיחת אפיון חינם ←</a>
 </nav>
+
+<main id="main">
 
 <!-- ========== HERO ========== -->
 <section class="hero">
@@ -873,12 +936,12 @@
 <section class="faq" id="faq">
   <div class="wrap">
     <div class="faq-grid">
-      <div>
+      <div class="faq-intro">
         <div class="eyebrow mono">שאלות נפוצות</div>
-        <h2 style="font-family:'Shilo',serif;font-weight:500;font-size:clamp(30px,3.5vw,44px);line-height:1.1;margin:0;letter-spacing:-.01em">
+        <h2>
           מה שחשוב לדעת<br>לפני הסשן הראשון.
         </h2>
-        <p style="color:var(--ink-soft);margin-top:20px;font-size:15px">לא מצאת תשובה? כתוב לי בטופס למטה. אחזור אליך תוך יום עבודה.</p>
+        <p class="faq-lede">לא מצאת תשובה? כתוב לי בטופס למטה. אחזור אליך תוך יום עבודה.</p>
       </div>
       <div class="faq-list">
         <details class="faq-item" open>
@@ -922,19 +985,19 @@
       <form class="contact-form" onsubmit="event.preventDefault();submitForm(this)">
         <div class="field">
           <label for="name">שם מלא</label>
-          <input id="name" type="text" required placeholder="איך לקרוא לך">
+          <input id="name" name="name" type="text" autocomplete="name" required placeholder="איך לקרוא לך">
         </div>
         <div class="field">
           <label for="phone">טלפון</label>
-          <input id="phone" type="tel" required placeholder="050-0000000">
+          <input id="phone" name="phone" type="tel" autocomplete="tel" required placeholder="050-0000000">
         </div>
         <div class="field">
           <label for="email">מייל</label>
-          <input id="email" type="email" required placeholder="name@example.com">
+          <input id="email" name="email" type="email" autocomplete="email" required placeholder="name@example.com">
         </div>
         <div class="field">
           <label for="topic">מה הכי מעסיק אותך עכשיו?</label>
-          <select id="topic" required>
+          <select id="topic" name="topic" required>
             <option value="">בחר תחום</option>
             <option>שינה / חרדות / לחצים</option>
             <option>זוגיות ומערכות יחסים</option>
@@ -946,7 +1009,7 @@
         </div>
         <div class="field">
           <label for="note">משהו שחשוב שאדע (לא חובה)</label>
-          <textarea id="note" placeholder="כמה משפטים במילים שלך"></textarea>
+          <textarea id="note" name="note" placeholder="כמה משפטים במילים שלך"></textarea>
         </div>
         <button type="submit" class="btn btn-primary form-submit">
           <span>שלח ונדבר</span>
@@ -958,9 +1021,11 @@
   </div>
 </section>
 
+</main>
+
 <footer>
   <div class="logo">
-    <div class="logo-mark"><img src="assets/logo.jpg" alt=""></div>
+    <div class="logo-mark"><img src="assets/logo.jpg" alt="של נוה גורביץ’ — ריפוי מהשורש"></div>
     <div class="logo-text">נוה גורביץ’ · ריפוי מהשורש</div>
   </div>
   <div class="socials">
@@ -1008,6 +1073,8 @@
   function submitForm(form){
     try { window.plausible && window.plausible("Lead"); } catch(_){}
     const btn = form.querySelector("button[type=submit]");
+    btn.setAttribute("aria-busy","true");
+    btn.disabled = true;
     const orig = btn.innerHTML;
     btn.innerHTML = '<span>נשלח ✓</span>';
     btn.style.background = 'var(--accent)';
@@ -1015,6 +1082,8 @@
       form.reset();
       btn.innerHTML = orig;
       btn.style.background = '';
+      btn.removeAttribute("aria-busy");
+      btn.disabled = false;
     }, 2500);
   }
 
