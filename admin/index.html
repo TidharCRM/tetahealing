@@ -5,14 +5,20 @@
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <meta name="robots" content="noindex, nofollow" />
 <title>ניהול — נוה גורביץ’ · ריפוי מהשורש</title>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet" />
+<link rel="preload" href="../fonts/aviv-300.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="../fonts/aviv-400.woff2" as="font" type="font/woff2" crossorigin />
 <style>
-  @font-face{font-family:"Shilo";src:url("../fonts/Shilo-Light.woff2") format("woff2");font-weight:300;font-display:swap}
-  @font-face{font-family:"Shilo";src:url("../fonts/Shilo-Regular.woff2") format("woff2");font-weight:400;font-display:swap}
-  @font-face{font-family:"Shilo";src:url("../fonts/Shilo-Medium.woff2") format("woff2");font-weight:500;font-display:swap}
-  @font-face{font-family:"Shilo";src:url("../fonts/Shilo-SemiBold.woff2") format("woff2");font-weight:600;font-display:swap}
-  @font-face{font-family:"Shilo";src:url("../fonts/Shilo-Bold.woff2") format("woff2");font-weight:700;font-display:swap}
-  @font-face{font-family:"Shilo";src:url("../fonts/Shilo-ExtraBold.woff2") format("woff2");font-weight:800;font-display:swap}
+  @font-face{font-family:"AVIV";src:url("../fonts/aviv-300.woff2") format("woff2");font-weight:300;font-style:normal;font-display:swap}
+  @font-face{font-family:"AVIV";src:url("../fonts/aviv-400.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
+  @font-face{font-family:"AVIV";src:url("../fonts/aviv-500.woff2") format("woff2");font-weight:500;font-style:normal;font-display:swap}
+  @font-face{font-family:"AVIV";src:url("../fonts/aviv-600.woff2") format("woff2");font-weight:600;font-style:normal;font-display:swap}
+  @font-face{font-family:"AVIV";src:url("../fonts/aviv-700.woff2") format("woff2");font-weight:700;font-style:normal;font-display:swap}
+  @font-face{font-family:"AVIV";src:url("../fonts/aviv-800.woff2") format("woff2");font-weight:800;font-style:normal;font-display:swap}
+
+  :root{--font-sans:"AVIV","Rubik",system-ui,sans-serif}
 
   :root[data-palette="cosmos"]{
     --bg-0:#0b0716;--bg-1:#140b28;--bg-2:#1d1138;
@@ -27,7 +33,7 @@
   html,body{margin:0;padding:0}
   body{
     background:var(--bg-0);color:var(--ink);
-    font-family:"Shilo","Helvetica Neue",sans-serif;font-weight:300;
+    font-family:var(--font-sans);font-weight:300;
     line-height:1.65;font-size:17px;letter-spacing:.005em;
     -webkit-font-smoothing:antialiased;overflow-x:hidden;
   }
@@ -57,9 +63,9 @@
     background:linear-gradient(135deg, var(--accent), var(--violet));
     display:grid;place-items:center;position:relative;
     box-shadow:0 0 24px var(--glow-a), 0 0 0 1px var(--line);
-    color:var(--bg-0);font-family:"Shilo",serif;font-weight:700;font-size:13px;
+    color:var(--bg-0);font-family:var(--font-sans);font-weight:700;font-size:13px;
   }
-  .logo-text{font-family:"Shilo",serif;font-size:19px;letter-spacing:.04em;line-height:1.1}
+  .logo-text{font-family:var(--font-sans);font-size:19px;letter-spacing:.04em;line-height:1.1}
   .logo-text .sub{font-size:11px;letter-spacing:.2em;color:var(--ink-dim);font-family:'JetBrains Mono',monospace;text-transform:uppercase}
 
   .wrap{max-width:1240px;margin:0 auto;padding:0 48px}
@@ -82,10 +88,10 @@
 
   .admin-hero { padding-top: 160px; padding-bottom: 80px; text-align: center; }
   .admin-hero .eyebrow-mono { font-family:"JetBrains Mono",monospace; font-size:11px; letter-spacing:.22em; color:var(--accent); text-transform:uppercase; margin-bottom:20px; }
-  .admin-hero h1 { font-family:"Shilo",serif; font-weight:500; font-size:clamp(28px,3.4vw,46px); margin:0 0 24px; color:var(--ink-soft); }
-  .money-saved { font-family:"Shilo",serif; font-weight:600; font-size:clamp(80px,12vw,180px); line-height:.95; color:var(--accent); text-shadow:0 0 80px var(--glow-a); letter-spacing:-.04em; }
+  .admin-hero h1 { font-family:var(--font-sans); font-weight:500; font-size:clamp(28px,3.4vw,46px); margin:0 0 24px; color:var(--ink-soft); }
+  .money-saved { font-family:var(--font-sans); font-weight:600; font-size:clamp(80px,12vw,180px); line-height:.95; color:var(--accent); text-shadow:0 0 80px var(--glow-a); letter-spacing:-.04em; }
   .money-delta { margin-top:16px; color:var(--ink-dim); font-size:14px; }
-  .money-delta strong { color:var(--accent); font-family:"Shilo",serif; font-weight:600; }
+  .money-delta strong { color:var(--accent); font-family:var(--font-sans); font-weight:600; }
   .money-explain { margin-top:14px; color:var(--ink-dim); font-size:13px; max-width:48ch; margin-inline:auto; }
 
   .demo-banner{
@@ -96,24 +102,24 @@
     display:none;
   }
   .demo-banner.show{display:block}
-  .demo-banner strong{color:var(--accent);font-family:"Shilo",serif;font-weight:600}
+  .demo-banner strong{color:var(--accent);font-family:var(--font-sans);font-weight:600}
 
   .stat-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; background:var(--line); border:1px solid var(--line); border-radius:24px; overflow:hidden; }
   .stat-card { background:var(--bg-1); padding:36px 28px; text-align:center; }
   .stat-card .icon { font-size:24px; margin-bottom:16px; }
-  .stat-card .num { font-family:"Shilo",serif; font-weight:600; font-size:48px; color:var(--accent); line-height:1; margin-bottom:10px; }
+  .stat-card .num { font-family:var(--font-sans); font-weight:600; font-size:48px; color:var(--accent); line-height:1; margin-bottom:10px; }
   .stat-card .label { font-size:14px; color:var(--ink-soft); }
   .stat-card .sub { font-size:11px; color:var(--ink-dim); margin-top:6px; font-family:"JetBrains Mono",monospace; letter-spacing:.15em; text-transform:uppercase; }
 
   .chart-card { border:1px solid var(--line); border-radius:24px; padding:36px; background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,0)); }
-  .chart-card h3 { font-family:"Shilo",serif; font-weight:500; font-size:22px; margin:0 0 24px; }
+  .chart-card h3 { font-family:var(--font-sans); font-weight:500; font-size:22px; margin:0 0 24px; }
 
-  .audience-head h2{font-family:"Shilo",serif;font-weight:500;font-size:clamp(28px,3vw,40px);margin:0 0 40px;text-align:center;letter-spacing:-.01em}
+  .audience-head h2{font-family:var(--font-sans);font-weight:500;font-size:clamp(28px,3vw,40px);margin:0 0 40px;text-align:center;letter-spacing:-.01em}
   .audience-head h2 em{font-style:italic;color:var(--accent)}
   .sources-list { max-width:680px; margin:0 auto; display:grid; gap:12px; }
   .source-row { display:flex; align-items:center; gap:18px; padding:16px 22px; border:1px solid var(--line); border-radius:14px; background:rgba(255,255,255,.02); }
   .source-row .name { flex:1; font-size:15px; color:var(--ink-soft); }
-  .source-row .pct { font-family:"Shilo",serif; font-weight:600; color:var(--accent); }
+  .source-row .pct { font-family:var(--font-sans); font-weight:600; color:var(--accent); }
   .source-row .bar { flex:0 0 200px; height:6px; background:var(--line); border-radius:3px; overflow:hidden; }
   .source-row .bar i { display:block; height:100%; background:var(--accent); border-radius:3px; transition:width .8s ease-out; }
 
@@ -124,7 +130,7 @@
     border-top:1px solid var(--line);font-size:12px;color:var(--ink-dim);
   }
   .klix-credit a{
-    color:var(--accent);font-family:'Shilo',serif;font-weight:600;letter-spacing:.04em;
+    color:var(--accent);font-family:var(--font-sans);font-weight:600;letter-spacing:.04em;
   }
 
   footer{padding:60px 48px 40px;border-top:1px solid var(--line);color:var(--ink-dim);font-size:13px}
@@ -321,7 +327,7 @@
       },
       options: {
         responsive: true,
-        plugins: { legend: { rtl: true, labels: { color: inkSoft, font: { family: "Shilo" } } } },
+        plugins: { legend: { rtl: true, labels: { color: inkSoft, font: { family: "Rubik" } } } },
         scales: {
           x: { ticks: { color: "#8a7db0", maxTicksLimit: 6 }, grid: { color: "rgba(201,188,230,.06)" } },
           y: { ticks: { color: "#8a7db0" }, grid: { color: "rgba(201,188,230,.06)" } }
